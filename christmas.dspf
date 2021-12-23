@@ -1,0 +1,180 @@
+     A                                      DSPSIZ(24 80 *DS3)                  
+     A          R SIGNON                                                        
+     A                                      CLEAR                               
+     A                                      BLINK                               
+     A                                  1 65'Time:'                             
+     A                                  1 71TIME                                
+     A                                  1  2'Date:'                             
+     A                                  1  8DATE                                
+     A                                      EDTCDE(Y)                           
+     A                                  1 37'Sign On'                           
+     A                                      COLOR(WHT)                          
+     A                                      DSPATR(HI)                          
+     A                                  3  2'System'                            
+     A            SYSNAME        8A  O  3  9                                    
+     A                                  3 30'Subsystem'                         
+     A            SBSNAME       10A  O  3 40                                    
+     A                                  3 63'Display'                           
+     A            DEVNAME       10A  O  3 71                                    
+     A                                  5 40'*'                                 
+     A                                      COLOR(YLW)                          
+     A                                      DSPATR(HI)                          
+     A                                  6 39'/o\'                               
+     A                                  7 38'/'                                 
+     A                                  7 42'\'                                 
+     A                                  8 37'/_o'                               
+     A                                  8 42'_\'                                
+     A                                  9 38'/'                                 
+     A                                  9 40'o'                                 
+     A                                      COLOR(BLU)                          
+     A                                  9 42'\'                                 
+     A                                 10 37'/'                                 
+     A                                 10 39'o'                                 
+     A                                      COLOR(RED)                          
+     A                                      DSPATR(BL)                          
+     A                                 10 43'\'                                 
+     A                                 11 36'/'                                 
+     A                                 11 42'o'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 11 44'\'                                 
+     A                                 12 12'S'                                 
+     A                                      COLOR(RED)                          
+     A                                 12 14'E'                                 
+     A                                      COLOR(YLW)                          
+     A                                 12 16'A'                                 
+     A                                 12 18'S'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 12 20'O'                                 
+     A                                      COLOR(BLU)                          
+     A                                 12 22'N'                                 
+     A                                      COLOR(PNK)                          
+     A                                 12 24'S'                                 
+     A                                      COLOR(WHT)                          
+     A                                 12 35'/_'                                
+     A                                 12 38'o'                                 
+     A                                      COLOR(YLW)                          
+     A                                 12 44'_\'                                
+     A                                 12 53'G'                                 
+     A                                      COLOR(RED)                          
+     A                                 12 55'R'                                 
+     A                                      COLOR(YLW)                          
+     A                                 12 57'E'                                 
+     A                                 12 59'E'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 12 61'T'                                 
+     A                                      COLOR(BLU)                          
+     A                                 12 63'I'                                 
+     A                                      COLOR(PNK)                          
+     A                                 12 65'N'                                 
+     A                                      COLOR(WHT)                          
+     A                                 12 67'G'                                 
+     A                                      COLOR(RED)                          
+     A                                 12 69'S'                                 
+     A                                      COLOR(YLW)                          
+     A                                 13 36'/o'                                
+     A                                 13 41'o'                                 
+     A                                      COLOR(PNK)                          
+     A                                 13 44'\'                                 
+     A                                 14 35'/'                                 
+     A                                 14 39'o'                                 
+     A                                      COLOR(WHT)                          
+     A                                 14 43'o'                                 
+     A                                      COLOR(RED)                          
+     A                                      DSPATR(BL)                          
+     A                                 14 45'\'                                 
+     A                                 15 34'/'                                 
+     A                                 15 36'o'                                 
+     A                                      COLOR(YLW)                          
+     A                                 15 38'o'                                 
+     A                                      COLOR(BLU)                          
+     A                                 15 44'o'                                 
+     A                                 15 46'\'                                 
+     A                                 16 33'/_'                                
+     A                                 16 40'o'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 16 43'o'                                 
+     A                                      COLOR(PNK)                          
+     A                                 16 46'_\'                                
+     A                                 17 34'/'                                 
+     A                                 17 36'o'                                 
+     A                                      COLOR(RED)                          
+     A                                      DSPATR(BL)                          
+     A                                 17 39'o'                                 
+     A                                 17 44'o'                                 
+     A                                      COLOR(BLU)                          
+     A                                 17 46'\'                                 
+     A                                 18 33'/'                                 
+     A                                 18 35'o'                                 
+     A                                      COLOR(PNK)                          
+     A                                 18 38'o'                                 
+     A                                      COLOR(YLW)                          
+     A                                 18 42'o'                                 
+     A                                      COLOR(WHT)                          
+     A                                 18 46'o\'                                
+     A                                 19 32'/o'                                
+     A                                 19 39'o'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 19 43'o'                                 
+     A                                      COLOR(RED)                          
+     A                                      DSPATR(BL)                          
+     A                                 19 48'\'                                 
+     A                                 20 31'/___o___'                          
+     A                                 20 40'o'                                 
+     A                                      COLOR(WHT)                          
+     A                                 20 42'____o__\'                          
+     A                                 21 39'|'                                 
+     A                                      COLOR(YLW)                          
+     A                                 21 41'|'                                 
+     A                                      COLOR(YLW)                          
+     A                                 22  1'User ID:'                          
+     A            USERID        10A  B 22 10                                    
+     A                                 22 39'|'                                 
+     A                                      COLOR(YLW)                          
+     A                                 22 41'|'                                 
+     A                                      COLOR(YLW)                          
+     A  01                             22 60'Password:'                         
+     A  01        PASSWRD       10A  I 22 70DSPATR(ND)                          
+     A            PROGRAM       10A  B 23 48CHECK(LC)                           
+     A                                      DSPATR(ND)                          
+     A                                      DSPATR(PR)                          
+     A            MENU          10A  B 23 59CHECK(LC)                           
+     A                                      DSPATR(ND)                          
+     A                                      DSPATR(PR)                          
+     A            CURLIB        10A  B 23 70CHECK(LC)                           
+     A                                      DSPATR(ND)                          
+     A                                      DSPATR(PR)                          
+     A  02        QSNERROR      80A  O 24  1DSPATR(HI)                          
+     A            COPYRIGHT     40A  O 24 40DSPATR(ND)                          
+     A            UBUFFER      128A  H                                          
+     A                                 17 52'_%_'                               
+     A                                      COLOR(RED)                          
+     A                                 18 51'|'                                 
+     A                                      COLOR(RED)                          
+     A                                 18 55'|'                                 
+     A                                      COLOR(RED)                          
+     A                                 19 51'|___|'                             
+     A                                      COLOR(RED)                          
+     A                                 19 61'_%_'                               
+     A                                      COLOR(YLW)                          
+     A                                 20 60'|'                                 
+     A                                      COLOR(YLW)                          
+     A                                 20 64'|'                                 
+     A                                      COLOR(YLW)                          
+     A                                 21 60'|___|'                             
+     A                                      COLOR(YLW)                          
+     A                                 19 24'_%_'                               
+     A                                      COLOR(BLU)                          
+     A                                 20 23'|'                                 
+     A                                      COLOR(BLU)                          
+     A                                 20 27'|'                                 
+     A                                      COLOR(BLU)                          
+     A                                 21 23'|___|'                             
+     A                                      COLOR(BLU)                          
+     A                                 19  4'_%_'                               
+     A                                      COLOR(TRQ)                          
+     A                                 20  3'|'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 20  7'|'                                 
+     A                                      COLOR(TRQ)                          
+     A                                 21  3'|___|'                             
+     A                                      COLOR(TRQ)                          
