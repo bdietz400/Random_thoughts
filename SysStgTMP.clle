@@ -1,0 +1,36 @@
+
+/* From the Current unprotect used field, determine what percent of the system is comprised of    */   
+/* current temporary space allocation through the following formula: % of temp space consuming    */   
+/* system storage = (Current unprotect used in M bytes / Total ASP in G bytes) / 10.              */
+/* For the above example this would be (710 / 20.97) / 10 = 3.4%                                  */                              
+
+PGM                                                              
+DCL VAR(&sys) TYPE(*CHAR) LEN(8)                                 
+DCL VAR(&PCT) TYPE(*CHAR) LEN(7)                                 
+DCL VAR(&tjob) TYPE(*CHAR) LEN(7)                                
+DCL VAR(&tmpsc) TYPE(*CHAR) LEN(7)                               
+DCL VAR(&RCVDTA) TYPE(*CHAR) LEN(099)                            
+DCL VAR(&RCVLEN) TYPE(*int) value(99)                            
+DCL VAR(&RESETO) TYPE(*CHAR) LEN(10) VALUE('*YES      ')         
+DCL VAR(&FMTNAM) TYPE(*CHAR) LEN(08) VALUE('SSTS0200')           
+DCL VAR(&ERRSTS) TYPE(*CHAR) LEN(08) VALUE(X'00000000')          
+DCL VAR(&PCTASP) TYPE(*DEC) LEN(7) VALUE(0)                      
+DCL VAR(&PCTX) TYPE(*DEC) LEN(7 4) VALUE(0)                      
+DCL VAR(&auxstg) TYPE(*int) LEN(4) VALUE(0)                      
+DCL VAR(&cusu) TYPE(*int) LEN(4) VALUE(0)                        
+DCL VAR(&tmps) TYPE(*DEC) LEN(7 4) VALUE(0)                      
+                                                                 
+RTVNETA    LCLCPNAME(&SYS)                                       
+CALL PGM(QWCRSSTS) PARM(&RCVDTA &RCVLEN &FMTNAM &RESETO &ERRSTS) 
+CHGVAR VAR(&PCTASP) VALUE(%BIN(&RCVDTA 53 4))                    
+CHGVAR VAR(&auxstg) VALUE(%BIN(&RCVDTA 57 4))                    
+CHGVAR VAR(&cusu  ) VALUE(%BIN(&RCVDTA 61 4))                          
+CHGVAR VAR(&PCTX) VALUE(&PCTASP / 10000)                               
+CHGVAR VAR(&tmps) VALUE((&cusu / (&auxstg / 1000)) / 10)               
+CHGVAR VAR(&PCT) VALUE(&PCTX)                                          
+CHGVAR VAR(&tmpsc) VALUE(&tmps)                                        
+        SNDPGMMSG  MSGID(CPF9897) MSGF(QCPFMSG) MSGDTA(&SYS +          
+                     *BCAT 'Sys ASP: ' || &PCT *TCAT +                 
+                     '% used' ||  +                                    
+                     '. Temp stg: ' || &tmpsc *TCAT '% of total disk.')
+ENDPGM 
