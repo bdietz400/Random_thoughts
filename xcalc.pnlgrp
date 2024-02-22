@@ -1,0 +1,172 @@
+.******************************************************************
+.*
+.*  Panel Group:  XCALC
+.*
+.*  Function:
+.*    Used as the help text for command XCALC
+.*
+.******************************************************************
+:PNLGRP.
+.******************************************************************
+.*
+.*  Primary help text for the command.
+.*
+.******************************************************************
+:HELP NAME='XCALC'.
+Expression Calculator - Help
+:P.
+Press help on the expression line for more HELP
+:EHELP.
+.*******************************************************************
+.*
+.*  Help text for the command parameters.
+.*
+.******************************************************************
+:HELP NAME='XCALC/EXP'.
+Mathmatical expression (EXP) - Help
+:XH3.Mathmatical expression (EXP)
+:P.
+The Expression Calculator (XCALC) command turns any command line
+into a powerful calculator.  Since the command uses a REXX procedure
+as its processor, virtually any REXX math function is supported.
+
+:P.
+For example, to multiple 14 times 63.5, and then raise the result
+to the third power, just enter the following on a command line:
+
+:P.
+  XCALC '(14 * 63.5) ** 3'
+
+:P.
+which will return the completion message:
+
+:P.
+  (14 * 63.5) ** 3 = 702595369
+
+:P.
+As you will notice, the expression must be inclosed in single quotes
+if it is entered from the command line.  If you prompt the command,
+then no quotes are required.
+
+:P.
+Arithmetic Operators:
+:P.
+  There are seven arithmetic operators that are supported by REXX
+  and which can be used by the command:
+:P.
+    (+)  Addition
+:P.
+    (-)  Subtraction
+:P.
+    (*)  Multiplication
+:P.
+    (**) Exponentiation
+:P.
+    (/)  Division
+:P.
+    (%)  Integer division
+:P.
+    (//) Remainder (modulo)
+:P.
+
+Data Conversions:
+:P.
+  Data conversions are also possible, using the REXX conversion
+  functions.
+:P.
+
+  For example, if you want to convert decimal 179 to hexdecimal, enter:
+
+:P.
+    XCALC 'd2x(179)'
+
+:P.
+  which will return the completion message:
+
+:P.
+    d2x(179) = B3
+
+:P.
+  d2x() is the REXX function to convert Decimal to heXdecimal.  The
+  data conversions available in the AS400 implementation of REXX are:
+:P.
+    b2x()  binary    to hex
+:P.
+    x2b()  hex       to binary
+:P.
+    c2d()  character to decimal     (EBCDIC)
+:P.
+    d2c()  decimal   to character   (EBCDIC)
+:P.
+    c2x()  character to hex         (EBCDIC)
+:P.
+    x2c()  hex       to character   (EBCDIC)
+:P.
+    d2x()  decimal   to hex
+:P.
+    x2d()  hex       to decimal
+
+:P.
+  Mixed conversion functions are also supported.  For example, to
+  multiply hexdecimal 8F times decimal 19 and receive the answer in
+  hexdecimal format, enter the following:
+
+:P.
+    XCALC 'd2x(x2d(8F) * 19)'
+
+:P.
+  which will return the completion message:
+
+:P.
+    d2x(x2d(8F) * 19) = A9D
+
+:P.
+  This ability to mix data conversions also allows you to "fill in
+  the gaps" that are missing in IBM's 400/REXX implementation.  For
+  example, there is no function that will directly convert binary
+  to decimal.  However you can combine two fuctions to get the
+  job done.  So to convert 100101 to decimal, enter:
+
+:P.
+    XCALC 'x2d(b2x(100101))'
+
+:P.
+  which will return the completion message:
+
+:P.
+    x2d(b2x(100101)) = 37
+
+:P.
+  The binary number 100101 is converted to an intermediary hexdecimal
+  value, which is then converted to a decimal value of 37.
+
+:P.
+
+Extra Goodies:
+:P.
+  Even some non-math REXX functions can be executed through the XCALC
+  command.  For example, to get today's date, enter:
+    XCALC 'date()'
+:P.
+  or to get the current day of the week, enter:
+    XCALC 'date(W)'
+:P.
+  or for the current time try these:
+:P.
+    XCALC 'time()'
+:P.
+    XCALC 'time(C)'
+:P.
+    XCALC 'time(L)'
+:P.
+  or try this one for a little fun:
+:P.
+    XCALC 'reverse("this is a test")'
+:P.
+  Notice in the last example that a text string is being passed to
+  the REXX function reverse().  Because this string must be quoted,
+  and because the entire XCALC parameter must also be quoted, we
+  use the double quotes (") to surround the text string.
+:EHELP.
+.******************************************************************
+:EPNLGRP.
